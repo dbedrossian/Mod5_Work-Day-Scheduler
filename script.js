@@ -15,12 +15,6 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
@@ -28,7 +22,6 @@ $(function () {
   // TODO: Add code to display the current date in the header of the page.
 });
 
-// WHEN I view the timeblocks for that day, each timeblock is color coded to indicate whether it is in the past, present, or future
 // WHEN I click into a timeblock, I can enter an event
 // WHEN I click the save button for that timeblock, the text for that event is saved in local storage
 // WHEN I refresh the page, the saved events persist
@@ -36,7 +29,7 @@ $(function () {
 
 var currentTime = dayjs().hour();
 
-function myFunction(){
+function timeColor(){
   var element9 = document.getElementById("hour-9");
   if (currentTime < 9) {
   element9.classList.add("future")
@@ -110,5 +103,34 @@ function myFunction(){
   }
 
 }
+timeColor()
 
-myFunction()
+
+// var save9 = document.getElementById("hour-9").getElementsByTagName('button');
+
+// save9.addEventListener("click", function(event) {
+//   event.preventDefault();
+// console.log("click");
+
+//   var email = document.getElementById("hour-9").getElementsByTagName('textarea');
+
+//     localStorage.setItem("email", email);
+//     renderLastRegistered();
+//   }
+// );
+
+$('#hour-9').find('button').on('click', function(){
+  var text = $('#hour-9').find('textarea').val();
+  localStorage.setItem("text", text);
+})
+
+function renderLastText() {
+  var lastText = localStorage.getItem("text");
+  $('#hour-9').find('textarea').text(lastText);
+
+}
+
+function init() {
+  renderLastText();
+}
+init();
