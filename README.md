@@ -23,7 +23,7 @@ This is a **to-do list app** that organizes your daily schedule and dynamically 
 Check out the link to the website:
 
 
-https://dbedrossian.github.io/Mod4_Coding-Quiz/
+https://dbedrossian.github.io/Mod5_Work-Day-Scheduler/
 
 
 ## Usage
